@@ -1,60 +1,59 @@
-# name: Automated Deployment
+name: Automated Deployment
 
-# on:
-#   push:
-#     branches: [ main ]
+on:
+  push:
+    branches: [ main ]
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Deploy via SSH
-#         uses: appleboy/ssh-action@v1.0.3
-#         with:
-#           host: ${{ secrets.SSH_HOST }}
-#           username: ${{ secrets.SSH_USER }}
-#           key: ${{ secrets.SSH_KEY }}
-#           script: |
-#             # إنشاء المجلد لو مش موجود
-#             sudo mkdir -p /var/www/my-app
-#             sudo chown -R $USER:$USER /var/www/my-app
-            
-#             # Clone or pull
-#             if [ ! -d "/var/www/my-app/.git" ]; then
-#               git clone git@github.com:${{ github.repository }}.git /var/www/my-app
-#             else
-#               cd /var/www/my-app
-#               # Discard any local changes and untracked files to avoid conflicts
-#               git fetch origin
-#               git reset --hard origin/main
-#               git clean -fd
-#             fi
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            # Create directory if not exists
+            sudo mkdir -p /var/www/food-guide
+            sudo chown -R $USER:$USER /var/www/food-guide
 
-#             cd /var/www/my-app
+            # Clone or pull
+            if [ ! -d "/var/www/food-guide/.git" ]; then
+              git clone git@github.com:xmaherr/food-guide.git /var/www/food-guide
+            else
+              cd /var/www/food-guide
+              git fetch origin
+              git reset --hard origin/main
+              git clean -fd
+            fi
 
-#             # Install dependencies
-#             composer install --no-dev --optimize-autoloader
+            cd /var/www/food-guide
 
-#             # Run migrations and seeders
-#             php artisan migrate --force
-#             php artisan db:seed --class=StatisticSeeder --force
+            # Install dependencies
+            composer install --no-dev --optimize-autoloader
 
-#             # Clear all caches
-#             php artisan optimize:clear
+            # Run migrations and seeders
+            php artisan migrate --force
+            php artisan db:seed --class=StatisticSeeder --force
 
-#             # Generate Swagger docs
-#             php artisan l5-swagger:generate
+            # Clear all caches
+            php artisan optimize:clear
 
-#             # Ensure framework directories exist
-#             mkdir -p /var/www/my-app/storage/framework/{sessions,views,cache}
+            # Generate Swagger docs
+            php artisan l5-swagger:generate
 
-#             # Fix permissions — php-fpm runs as apache not nginx
-#             sudo chown -R apache:apache /var/www/my-app/storage /var/www/my-app/bootstrap/cache
-#             sudo chmod -R 775 /var/www/my-app/storage /var/www/my-app/bootstrap/cache
-            
-#             # Fix SELinux contexts (Crucial for CentOS/RedHat servers)
-#             sudo chcon -Rt httpd_sys_rw_content_t /var/www/my-app/storage 2>/dev/null || true
-#             sudo chcon -Rt httpd_sys_rw_content_t /var/www/my-app/bootstrap/cache 2>/dev/null || true
+            # Ensure framework directories exist
+            mkdir -p /var/www/food-guide/storage/framework/{sessions,views,cache}
 
-#             # Restart queue workers so they pick up the new code
-#             php artisan queue:restart
+            # Fix permissions — nginx runs with php-fpm
+            sudo chown -R nginx:nginx /var/www/food-guide/storage /var/www/food-guide/bootstrap/cache
+            sudo chmod -R 775 /var/www/food-guide/storage /var/www/food-guide/bootstrap/cache
+
+            # Fix SELinux contexts (AlmaLinux 9)
+            sudo chcon -Rt httpd_sys_rw_content_t /var/www/food-guide/storage 2>/dev/null || true
+            sudo chcon -Rt httpd_sys_rw_content_t /var/www/food-guide/bootstrap/cache 2>/dev/null || true
+
+            # Restart queue workers
+            php artisan queue:restart
