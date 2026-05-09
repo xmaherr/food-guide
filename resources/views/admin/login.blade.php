@@ -8,14 +8,14 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { primary: '#14594F', secondary: '#E69D65', text: '#FFF4E2' }
+                    colors: { primary: '#F28604', secondary: '#FFA033', text: '#FFF4E2', surface: '#FFFDF9' }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-gray-100 h-screen flex items-center justify-center">
-    <div class="bg-white p-8 rounded shadow-lg max-w-sm w-full">
+<body class="bg-[#FFFAF5] h-screen flex items-center justify-center">
+    <div class="bg-[#FFFAF5] p-8 rounded shadow-lg max-w-sm w-full border border-primary/10">
         <h2 class="text-2xl font-bold mb-6 text-primary text-center">Admin Login</h2>
         @if ($errors->any())
             <div class="bg-red-100 text-red-600 p-3 rounded mb-4 text-sm">

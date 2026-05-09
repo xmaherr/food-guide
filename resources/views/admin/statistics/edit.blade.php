@@ -8,7 +8,7 @@
     </a>
 </div>
 
-<div class="bg-white rounded-lg shadow p-6 max-w-2xl">
+<div class="bg-surface rounded-lg shadow p-6 max-w-2xl">
     <form action="{{ route('admin.statistics.update', $statistic) }}" method="POST">
         @csrf
         @method('PUT')
@@ -38,7 +38,7 @@
         </div>
 
         <div class="flex justify-end">
-            <button type="submit" class="bg-primary text-white px-6 py-2 rounded hover:bg-primary/90 transition-colors">
+            <button type="submit" class="bg-primary text-text px-6 py-2 rounded hover:bg-primary/90 transition-colors">
                 Save Changes
             </button>
         </div>

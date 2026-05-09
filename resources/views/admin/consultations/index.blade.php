@@ -7,7 +7,7 @@
         <a href="{{ route('admin.consultations.index', ['filter'=>'unread']) }}" class="text-red-500 hover:text-red-700 font-bold">Unread Only</a>
     </div>
 </div>
-<div class="bg-white shadow rounded overflow-hidden">
+<div class="bg-surface shadow rounded overflow-hidden">
     <table class="min-w-full leading-normal">
         <thead>
             <tr class="bg-gray-100 text-gray-600 text-sm leading-normal">

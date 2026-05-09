@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body style="margin:0; padding:0; background-color:#f0ede8; font-family: Tahoma, Arial, sans-serif; direction:rtl;">
+<body style="margin:0; padding:0; background-color:#FFFAF5; font-family: Tahoma, Arial, sans-serif; direction:rtl;">
 
-    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f0ede8;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFFAF5;">
         <tr>
             <td align="center" style="padding: 40px 16px;">
 
@@ -17,10 +17,10 @@
                     <!-- ===== HEADER ===== -->
                     <tr>
                         <td
-                            style="background: linear-gradient(135deg, #14594F 0%, #1a7a6e 60%, #0f403a 100%); border-radius: 16px 16px 0 0; padding: 36px 32px 28px; text-align: center;">
+                            style="background: linear-gradient(135deg, #F28604 0%, #FFA033 60%, #D67600 100%); border-radius: 16px 16px 0 0; padding: 36px 32px 28px; text-align: center;">
                             <p
                                 style="margin:0 0 12px 0; display:inline-block; background:rgba(255,244,226,0.15); color:#FFF4E2; font-size:12px; font-weight:bold; padding:4px 16px; border-radius:20px; border:1px solid rgba(255,244,226,0.3);">
-                                🌿 &nbsp; Food Solutions
+                                🌿 &nbsp; Food Guide
                             </p>
                             <h1 style="margin:0; color:#FFF4E2; font-size:26px; font-weight:900; line-height:1.5;">طلب
                                 استشارة جديد</h1>
@@ -32,12 +32,12 @@
                     <!-- ===== CARD ===== -->
                     <tr>
                         <td
-                            style="background:#ffffff; border-radius: 0 0 16px 16px; overflow:hidden; box-shadow: 0 8px 32px rgba(20,89,79,0.10);">
+                            style="background:#ffffff; border-radius: 0 0 16px 16px; overflow:hidden; box-shadow: 0 8px 32px rgba(242,134,4,0.15);">
 
                             <!-- Intro -->
                             <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                 <tr>
-                                    <td style="padding: 24px 32px 20px; border-bottom: 1px solid #f0ede8;">
+                                    <td style="padding: 24px 32px 20px; border-bottom: 1px solid #FFFAF5;">
                                         <p
                                             style="margin:0; color:#666; font-size:14px; line-height:1.8; text-align:right;">
                                             مرحباً، وصل طلب استشارة جديد من العميل أدناه. يرجى مراجعة التفاصيل والتواصل
@@ -57,12 +57,12 @@
                                             <tr>
                                                 <td style="vertical-align: middle; padding-left: 14px;">
                                                     <div
-                                                        style="width:40px; height:40px; background:#f0f9f8; border-radius:10px; text-align:center; line-height:40px; font-size:18px;">
+                                                        style="width:40px; height:40px; background:#FFF4E6; border-radius:10px; text-align:center; line-height:40px; font-size:18px;">
                                                         👤</div>
                                                 </td>
                                                 <td style="vertical-align: middle; text-align:right;">
                                                     <p
-                                                        style="margin:0 0 3px 0; font-size:11px; font-weight:bold; color:#14594F;">
+                                                        style="margin:0 0 3px 0; font-size:11px; font-weight:bold; color:#F28604;">
                                                         الاسم</p>
                                                     <p style="margin:0; font-size:15px; font-weight:bold; color:#222;">
                                                         {{ $consultation->name }}
@@ -80,12 +80,12 @@
                                             <tr>
                                                 <td style="vertical-align: middle; padding-left: 14px;">
                                                     <div
-                                                        style="width:40px; height:40px; background:#f0f9f8; border-radius:10px; text-align:center; line-height:40px; font-size:18px;">
+                                                        style="width:40px; height:40px; background:#FFF4E6; border-radius:10px; text-align:center; line-height:40px; font-size:18px;">
                                                         📞</div>
                                                 </td>
                                                 <td style="vertical-align: middle; text-align:right;">
                                                     <p
-                                                        style="margin:0 0 3px 0; font-size:11px; font-weight:bold; color:#14594F;">
+                                                        style="margin:0 0 3px 0; font-size:11px; font-weight:bold; color:#F28604;">
                                                         رقم الهاتف</p>
                                                     <p style="margin:0; font-size:15px; font-weight:bold; color:#222;">
                                                         {{ $consultation->phone }}
@@ -103,12 +103,12 @@
                                             <tr>
                                                 <td style="vertical-align: middle; padding-left: 14px;">
                                                     <div
-                                                        style="width:40px; height:40px; background:#f0f9f8; border-radius:10px; text-align:center; line-height:40px; font-size:18px;">
+                                                        style="width:40px; height:40px; background:#FFF4E6; border-radius:10px; text-align:center; line-height:40px; font-size:18px;">
                                                         ✉️</div>
                                                 </td>
                                                 <td style="vertical-align: middle; text-align:right; max-width: 200px">
                                                     <p
-                                                        style="margin:0 0 3px 0; font-size:11px; font-weight:bold; color:#14594F;">
+                                                        style="margin:0 0 3px 0; font-size:11px; font-weight:bold; color:#F28604;">
                                                         البريد الإلكتروني</p>
                                                     <p style="margin:0; font-size:15px; font-weight:bold; color:#222;">
                                                         {{ $consultation->email }}
@@ -126,12 +126,12 @@
                                             <tr>
                                                 <td style="vertical-align: middle; padding-left: 14px;">
                                                     <div
-                                                        style="width:40px; height:40px; background:#f0f9f8; border-radius:10px; text-align:center; line-height:40px; font-size:18px;">
+                                                        style="width:40px; height:40px; background:#FFF4E6; border-radius:10px; text-align:center; line-height:40px; font-size:18px;">
                                                         🍃</div>
                                                 </td>
                                                 <td style="vertical-align: middle; text-align:right;">
                                                     <p
-                                                        style="margin:0 0 3px 0; font-size:11px; font-weight:bold; color:#14594F;">
+                                                        style="margin:0 0 3px 0; font-size:11px; font-weight:bold; color:#F28604;">
                                                         الخدمة المطلوبة</p>
                                                     <p style="margin:0; font-size:15px; font-weight:bold; color:#222;">
                                                         {{ $consultation->service ? $consultation->service->title_ar : 'غير محدد' }}
@@ -149,15 +149,15 @@
                                             <tr>
                                                 <td style="vertical-align: top; padding-left: 14px; width:54px;">
                                                     <div
-                                                        style="width:40px; height:40px; background:#f0f9f8; border-radius:10px; text-align:center; line-height:40px; font-size:18px;">
+                                                        style="width:40px; height:40px; background:#FFF4E6; border-radius:10px; text-align:center; line-height:40px; font-size:18px;">
                                                         💬</div>
                                                 </td>
                                                 <td style="vertical-align: top; text-align:right;">
                                                     <p
-                                                        style="margin:0 0 8px 0; font-size:11px; font-weight:bold; color:#14594F;">
+                                                        style="margin:0 0 8px 0; font-size:11px; font-weight:bold; color:#F28604;">
                                                         الرسالة</p>
                                                     <p
-                                                        style="margin:0; font-size:14px; color:#444; line-height:1.8; background:#fafaf9; padding:12px 16px; border-radius:8px; border-right:3px solid #14594F;">
+                                                        style="margin:0; font-size:14px; color:#444; line-height:1.8; background:#fafaf9; padding:12px 16px; border-radius:8px; border-right:3px solid #F28604;">
                                                         {{ $consultation->message ?? 'لا توجد رسالة' }}
                                                     </p>
                                                 </td>
@@ -172,7 +172,7 @@
                             <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                 <tr>
                                     <td
-                                        style="background:#fafaf8; border-top:1px solid #f0ede8; padding:18px 32px; text-align:center;">
+                                        style="background:#fafaf8; border-top:1px solid #FFFAF5; padding:18px 32px; text-align:center;">
                                         <p style="margin:0; font-size:13px; color:#888;">📅 &nbsp; يرجى الرد على العميل
                                             خلال 24 ساعة</p>
                                     </td>
@@ -186,7 +186,7 @@
                     <tr>
                         <td style="text-align:center; padding:24px 16px 0;">
                             <p style="margin:0; font-size:12px; color:#aaa; line-height:1.8;">
-                                جميع الحقوق محفوظة &copy; {{ date('Y') }} <strong style="color:#14594F;">Food
+                                جميع الحقوق محفوظة &copy; {{ date('Y') }} <strong style="color:#F28604;">Food
                                     Solutions</strong><br>
                                 هذا البريد أُرسل تلقائياً، يرجى عدم الرد عليه مباشرةً
                             </p>

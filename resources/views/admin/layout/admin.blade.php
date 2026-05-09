@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,42 +11,84 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#14594F',
-                        secondary: '#E69D65',
+                        primary: '#F28604',
+                        secondary: '#FFA033',
+                        active: '#a85f08',
                         text: '#FFF4E2',
+                        surface: '#FFFDF9',
+                        wheat: '#f5deb3',
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-gray-100 flex min-h-screen">
+
+<body class="bg-[#FFFAF5] flex min-h-screen">
     <!-- Sidebar -->
     <aside class="w-64 bg-primary text-text min-h-screen flex flex-col">
         <div class="h-16 flex items-center justify-center border-b border-secondary/30">
-            <h1 class="text-xl font-bold">Food Solutions</h1>
+            <h1 class="text-xl font-bold">Food Guide</h1>
         </div>
+        @php
+            $baseClasses = 'block px-4 py-2 rounded transition-colors duration-200';
+        @endphp
+
         <nav class="flex-1 px-4 py-6 space-y-2">
-            <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 hover:bg-secondary/20 rounded">Dashboard</a>
-            <a href="{{ route('admin.home-sections.index') }}" class="block px-4 py-2 hover:bg-secondary/20 rounded">Home Sections</a>
-            <a href="{{ route('admin.services.index') }}" class="block px-4 py-2 hover:bg-secondary/20 rounded">Services</a>
-            <a href="{{ route('admin.contacts.index') }}" class="block px-4 py-2 hover:bg-secondary/20 rounded">Contacts</a>
-            <a href="{{ route('admin.consultations.index') }}" class="block px-4 py-2 hover:bg-secondary/20 rounded">Consultations</a>
-            <a href="{{ route('admin.settings.index') }}" class="block px-4 py-2 hover:bg-secondary/20 rounded">Settings</a>
-            <a href="{{ route('admin.statistics.index') }}" class="block px-4 py-2 hover:bg-secondary/20 rounded">Statistics</a>
-            <a href="{{ route('admin.users.index') }}" class="block px-4 py-2 hover:bg-secondary/20 rounded">Users</a>
+
+            <a href="{{ route('admin.dashboard') }}"
+                class="{{ $baseClasses }} {{ request()->routeIs('admin.dashboard') ? 'bg-active text-white font-semibold shadow-md' : 'hover:bg-active/70' }}">
+                Dashboard
+            </a>
+
+            <a href="{{ route('admin.home-sections.index') }}"
+                class="{{ $baseClasses }} {{ request()->routeIs('admin.home-sections.*') ? 'bg-active text-white font-semibold shadow-md' : 'hover:bg-active/70' }}">
+                Home Sections
+            </a>
+
+            <a href="{{ route('admin.services.index') }}"
+                class="{{ $baseClasses }} {{ request()->routeIs('admin.services.*') ? 'bg-active text-white font-semibold shadow-md' : 'hover:bg-active/70' }}">
+                Services
+            </a>
+
+            <a href="{{ route('admin.contacts.index') }}"
+                class="{{ $baseClasses }} {{ request()->routeIs('admin.contacts.*') ? 'bg-active text-white font-semibold shadow-md' : 'hover:bg-active/70' }}">
+                Contacts
+            </a>
+
+            <a href="{{ route('admin.consultations.index') }}"
+                class="{{ $baseClasses }} {{ request()->routeIs('admin.consultations.*') ? 'bg-active text-white font-semibold shadow-md' : 'hover:bg-active/70' }}">
+                Consultations
+            </a>
+
+            <a href="{{ route('admin.settings.index') }}"
+                class="{{ $baseClasses }} {{ request()->routeIs('admin.settings.*') ? 'bg-active text-white font-semibold shadow-md' : 'hover:bg-active/70' }}">
+                Settings
+            </a>
+
+            <a href="{{ route('admin.statistics.index') }}"
+                class="{{ $baseClasses }} {{ request()->routeIs('admin.statistics.*') ? 'bg-active text-white font-semibold shadow-md' : 'hover:bg-active/70' }}">
+                Statistics
+            </a>
+
+            <a href="{{ route('admin.users.index') }}"
+                class="{{ $baseClasses }} {{ request()->routeIs('admin.users.*') ? 'bg-active text-white font-semibold shadow-md' : 'hover:bg-active/70' }}">
+                Users
+            </a>
+
         </nav>
         <div class="px-4 py-6">
             <form method="POST" action="{{ route('admin.logout') }}">
                 @csrf
-                <button type="submit" class="w-full bg-secondary text-primary font-bold py-2 px-4 rounded hover:bg-white transition-colors">Logout</button>
+                <button type="submit"
+                    class="w-full bg-wheat text-primary font-bold py-2 px-4 rounded hover:bg-wheat transition-colors">Logout</button>
             </form>
         </div>
     </aside>
 
     <!-- Main Content -->
     <main class="flex-1 flex flex-col">
-        <header class="h-16 bg-white shadow flex items-center px-6 justify-end">
+        <header class="h-16 bg-[#FFFAF5] shadow flex items-center px-6 justify-end">
             <span class="text-gray-600">Logged in as {{ auth()->user()->name }}</span>
         </header>
 
@@ -66,4 +109,5 @@
         </div>
     </main>
 </body>
+
 </html>

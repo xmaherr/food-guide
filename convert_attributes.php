@@ -2,14 +2,16 @@
 
 $dir = __DIR__ . '/app/Http/Controllers';
 
-file_put_contents($dir . '/Controller.php', <<<'EOF'
+file_put_contents(
+    $dir . '/Controller.php',
+    <<<'EOF'
 <?php
 
 namespace App\Http\Controllers;
 
 use OpenApi\Attributes as OA;
 
-#[OA\Info(version: "1.0.0", title: "Food Solutions API")]
+#[OA\Info(version: "1.0.0", title: "Food Guide API")]
 #[OA\Server(url: "/")]
 abstract class Controller
 {
@@ -18,7 +20,9 @@ abstract class Controller
 EOF
 );
 
-file_put_contents($dir . '/Api/ConsultationController.php', <<<'EOF'
+file_put_contents(
+    $dir . '/Api/ConsultationController.php',
+    <<<'EOF'
 <?php
 
 namespace App\Http\Controllers\Api;
@@ -87,7 +91,9 @@ class ConsultationController extends Controller
 EOF
 );
 
-file_put_contents($dir . '/Api/ContactController.php', <<<'EOF'
+file_put_contents(
+    $dir . '/Api/ContactController.php',
+    <<<'EOF'
 <?php
 
 namespace App\Http\Controllers\Api;
@@ -157,7 +163,9 @@ class ContactController extends Controller
 EOF
 );
 
-file_put_contents($dir . '/Api/ServiceController.php', <<<'EOF'
+file_put_contents(
+    $dir . '/Api/ServiceController.php',
+    <<<'EOF'
 <?php
 
 namespace App\Http\Controllers\Api;

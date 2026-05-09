@@ -2,9 +2,9 @@
 @section('content')
 <div class="flex justify-between items-center mb-6">
     <h2 class="text-2xl font-bold text-gray-800">Consultation Details</h2>
-    <a href="{{ route('admin.consultations.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Back</a>
+    <a href="{{ route('admin.consultations.index') }}" class="bg-gray-500 text-text px-4 py-2 rounded">Back</a>
 </div>
-<div class="bg-white shadow rounded p-6">
+<div class="bg-surface shadow rounded p-6">
     <div class="grid grid-cols-2 gap-4 mb-4">
         <div><strong class="text-gray-700">Name:</strong> {{ $consultation->name }}</div>
         <div><strong class="text-gray-700">Date:</strong> {{ $consultation->created_at->format('Y-m-d H:i:s') }}</div>
