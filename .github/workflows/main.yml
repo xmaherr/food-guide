@@ -45,15 +45,17 @@ jobs:
             php artisan l5-swagger:generate
 
             # Ensure framework directories exist
-            mkdir -p /var/www/food-guide/storage/framework/{sessions,views,cache}
+            sudo mkdir -p /var/www/food-guide/storage/framework/{sessions,views,cache}
+            sudo mkdir -p /var/www/food-guide/storage/logs
 
-            # Fix permissions — nginx runs with php-fpm
-            sudo chown -R nginx:nginx /var/www/food-guide/storage /var/www/food-guide/bootstrap/cache
+            # Fix permissions — PHP-FPM runs as apache on this server
+            sudo chown -R apache:apache /var/www/food-guide/storage /var/www/food-guide/bootstrap/cache
             sudo chmod -R 775 /var/www/food-guide/storage /var/www/food-guide/bootstrap/cache
 
-            # Fix SELinux contexts (AlmaLinux 9)
-            sudo chcon -Rt httpd_sys_rw_content_t /var/www/food-guide/storage 2>/dev/null || true
-            sudo chcon -Rt httpd_sys_rw_content_t /var/www/food-guide/bootstrap/cache 2>/dev/null || true
+            # Fix SELinux contexts (Permanent fix)
+            sudo semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/food-guide/storage(/.*)?" 2>/dev/null || true
+            sudo semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/food-guide/bootstrap/cache(/.*)?" 2>/dev/null || true
+            sudo restorecon -Rv /var/www/food-guide/storage /var/www/food-guide/bootstrap/cache 2>/dev/null || true
 
             # Restart queue workers
             php artisan queue:restart
