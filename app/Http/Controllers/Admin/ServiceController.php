@@ -35,13 +35,13 @@ class ServiceController extends Controller
         if ($request->hasFile('image')) {
             $data['image'] = $uploadService->upload($request->file('image'), 'images/services');
         }
-        
+
         if ($request->hasFile('icon')) {
             $data['icon'] = $uploadService->upload($request->file('icon'), 'icons/services');
         }
 
         $data['is_active'] = $request->has('is_active');
-        
+
         Service::create($data);
         return redirect()->route('admin.services.index')->with('success', 'Service created successfully.');
     }
@@ -53,7 +53,7 @@ class ServiceController extends Controller
 
     public function update(Request $request, Service $service, ImageUploadService $uploadService)
     {
-        $data = $request->validate([
+        $validated = $request->validate([
             'title_ar' => 'required|string|max:255',
             'short_description_ar' => 'required|string',
             'long_description_ar' => 'required|string',
@@ -63,22 +63,33 @@ class ServiceController extends Controller
             'points' => 'nullable|array'
         ]);
 
+
+        $data = collect($validated)->except(['image', 'icon'])->toArray();
+
+
         if ($request->hasFile('image')) {
-            $data['image'] = $uploadService->upload($request->file('image'), 'images/services', $service->getRawOriginal('image'));
-        } else {
-            unset($data['image']);
+            $data['image'] = $uploadService->upload(
+                $request->file('image'),
+                'images/services',
+                $service->getRawOriginal('image')
+            );
         }
-        
+
         if ($request->hasFile('icon')) {
-            $data['icon'] = $uploadService->upload($request->file('icon'), 'icons/services', $service->getRawOriginal('icon'));
-        } else {
-            unset($data['icon']);
+            $data['icon'] = $uploadService->upload(
+                $request->file('icon'),
+                'icons/services',
+                $service->getRawOriginal('icon')
+            );
         }
 
         $data['is_active'] = $request->has('is_active');
-        
+
         $service->update($data);
-        return redirect()->route('admin.services.index')->with('success', 'Service updated successfully.');
+
+        return redirect()->route('admin.services.index')
+            ->with('success', 'Service updated successfully.');
+
     }
 
     public function destroy(Service $service, ImageUploadService $uploadService)
