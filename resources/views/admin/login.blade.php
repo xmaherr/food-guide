@@ -2,21 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Login</title>
+    <title>Admin Login — {{ config('branding.app_name') }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { primary: '#F28604', secondary: '#FFA033', text: '#FFF4E2', surface: '#FFFDF9' }
-                }
-            }
-        }
-    </script>
+    @include('admin.layout.partials.branding-styles')
 </head>
 <body class="bg-[#FFFAF5] h-screen flex items-center justify-center">
     <div class="bg-[#FFFAF5] p-8 rounded shadow-lg max-w-sm w-full border border-primary/10">
-        <h2 class="text-2xl font-bold mb-6 text-primary text-center">Admin Login</h2>
+        <h2 class="text-2xl font-bold mb-6 text-primary text-center">{{ config('branding.app_name') }}</h2>
+
         @if ($errors->any())
             <div class="bg-red-100 text-red-600 p-3 rounded mb-4 text-sm">
                 {{ $errors->first() }}
