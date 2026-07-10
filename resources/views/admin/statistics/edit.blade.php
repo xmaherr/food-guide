@@ -8,7 +8,7 @@
     </a>
 </div>
 
-<div class="bg-surface rounded-lg shadow p-6 max-w-2xl">
+<div class="bg-white rounded-lg shadow p-6 max-w-2xl">
     <form action="{{ route('admin.statistics.update', $statistic) }}" method="POST">
         @csrf
         @method('PUT')

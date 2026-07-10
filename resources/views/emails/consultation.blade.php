@@ -33,7 +33,7 @@
                     <!-- ===== CARD ===== -->
                     <tr>
                         <td
-                            style="background:#ffffff; border-radius: 0 0 16px 16px; overflow:hidden; box-shadow: 0 8px 32px rgba(242,134,4,0.15);">
+                            style="background:#ffffff; border-radius: 0 0 16px 16px; overflow:hidden; box-shadow: 0 8px 32px rgba(20,89,79,0.10);">
 
                             <!-- Intro -->
                             <table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -67,7 +67,7 @@
                                                         الاسم</p>
                                                     <p style="margin:0; font-size:15px; font-weight:bold; color:#222;">
                                                         {{ $consultation->name }}
-                                                     </p>
+                                                    </p>
                                                 </td>
                                             </tr>
                                         </table>

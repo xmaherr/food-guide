@@ -1,7 +1,7 @@
 @extends('admin.layout.admin')
 @section('content')
 <h2 class="text-2xl font-bold text-gray-800 mb-6">Edit User</h2>
-<div class="bg-surface shadow rounded p-6">
+<div class="bg-white shadow rounded p-6">
     <form action="{{ route('admin.users.update', $user) }}" method="POST">
         @csrf @method('PUT')
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">

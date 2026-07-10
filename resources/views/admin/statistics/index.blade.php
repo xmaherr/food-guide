@@ -8,7 +8,7 @@
     </a>
 </div>
 
-<div class="bg-surface rounded-lg shadow p-6">
+<div class="bg-white rounded-lg shadow p-6">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="border p-4 rounded-lg bg-gray-50 text-center">
             <h3 class="text-lg font-semibold text-gray-700">Years of Experience</h3>

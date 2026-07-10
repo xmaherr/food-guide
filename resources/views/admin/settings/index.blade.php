@@ -1,7 +1,7 @@
 @extends('admin.layout.admin')
 @section('content')
 <h2 class="text-2xl font-bold text-gray-800 mb-6">Settings</h2>
-<div class="bg-surface shadow rounded p-6">
+<div class="bg-white shadow rounded p-6">
     <form action="{{ route('admin.settings.store') }}" method="POST">
         @csrf
         <div class="grid grid-cols-1 gap-4">
